@@ -28,8 +28,10 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+         
             services.AddControllers();
 
+            services.AddHttpClient<IDeliveryHttpClient, IDeliveryHttpClient>(); // Use HttpClient from HttpClientFactory
 
             //services.AddSingleton<IDeliveryCacheManager, YourCustomCacheManager>();  //You can implement your custom cache manager instead of a default memory cache manager
             services.AddDeliveryClient("client1", Configuration, "DeliveryOptions1"); //Configuration one
